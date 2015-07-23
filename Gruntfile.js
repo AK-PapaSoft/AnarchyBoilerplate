@@ -206,6 +206,11 @@ module.exports = function (grunt) {
           'flexbox',
         ]
       }
+    },
+    removelogging: {
+      dist: {
+        src: "js/common.js"
+      }
     }
   });
   grunt.loadNpmTasks('grunt-contrib-concat');
@@ -218,8 +223,9 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-csso');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks("grunt-modernizr");
+  grunt.loadNpmTasks("grunt-remove-logging");
   grunt.registerTask('development', ['concat:development', 'less:development', 'postcss', 'htmlbuild', 'replace:html', 'modernizr', 'watch']);
-  grunt.registerTask('production', ['concat:production', 'uglify:production', 'less:development', 'postcss', 'htmlbuild', 'replace:html', 'replace:production', 'cssmin:production', 'modernizr']);
-  grunt.registerTask('production-compress', ['concat:production', 'uglify:production', 'less:development', 'postcss', 'htmlbuild', 'replace', 'cssmin:production', 'modernizr']);
+  grunt.registerTask('production', ['concat:production', 'uglify:production', 'less:development', 'postcss', 'htmlbuild', 'replace:html', 'replace:production', 'cssmin:production', 'modernizr', 'removelogging']);
+  grunt.registerTask('production-compress', ['concat:production', 'uglify:production', 'less:development', 'postcss', 'htmlbuild', 'replace', 'cssmin:production', 'modernizr', 'removelogging']);
   grunt.registerTask('css-beautify', ['less:beautify', 'postcss', 'replace:beautify']);
 };

@@ -15,5 +15,8 @@
     "grunt-postcss": "^0.1.0",
     "grunt-text-replace": "^0.3.12",
     "postcss-urlrewrite": "^0.1.1"
+  },
+  "dependencies": {
+    "grunt-remove-logging": "^0.2.0"
   }
 }
